@@ -2,30 +2,59 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Title</title>
-    <link
-      rel="stylesheet"
-      href="./styles/main.scss"
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-    />
+    <link rel="stylesheet" href="./styles/main.scss" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <h1>Hello Mate Academy</h1>
+    <header class="header">
+      <!-- Top menu: logo | spec | lang toggle | buy button | menu icon -->
+      <nav class="header__container">
+        <a class="header__logo" href="/" aria-label="Homepage">
+          <img src="./images/icons/logo.svg" alt="Crazybaby" />
+        </a>
+        <nav class="header__nav" aria-label="Main navigation">
+          <a class="header__nav-item" href="#spec">spec</a>
+          <ul>
+            <li class="header__nav-item">EN</li>
+            <li class="header__nav-item">/</li>
+            <li class="header__nav-item">UA</li>
+          </ul>
+          <button class="header__nav-btn btn">buy</button>
+          <button class="header__nav-menu" type="button" aria-label="Open menu">
+            <img src="./images/icons/Icon-Burger-menu.svg" alt="Open menu" />
+          </button>
+        </nav>
+      </nav>
+      <!-- Context container under the menu (page title / subtitle) -->
+      <div class="header__context">
+        <div class="header__context-container">
+          <h1 class="header__context-title">Futuristic Wireless Speaker</h1>
+          <p class="header__context-subtitle">
+            Luna’s performance is balanced and smooth in all frequency ranges
+            which makes the music both naturally pleasant and distinctly more
+            layered.
+          </p>
+        </div>
+        <picture class="header__context-image">
+          <source
+            srcset="/src/images/header/header-desktop.png"
+            media="(min-width: 1440px)"
+          />
+          <source
+            srcset="/src/images/header/header-tablet.png"
+            media="(min-width: 768px)"
+          />
+          <source srcset="/src/images/header/header-mobile.png" />
+        </picture>
+      </div>
+    </header>
     <script src="scripts/main.js"></script>
   </body>
 </html>

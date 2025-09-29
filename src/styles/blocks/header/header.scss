@@ -1,0 +1,166 @@
+@use '../../utils/media';
+@use '../../utils/fonts';
+@use '../../utils/vars';
+@use '../../utils/button';
+
+.header {
+  @include media.grid-320;
+
+  grid-template-rows: 76px auto;
+  min-width: 300px;
+  background-color: vars.$white-200;
+
+  &__container {
+    grid-column: 1 / -1;
+    display: flex;
+    grid-row: 1 / 2;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    height: 26px;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    &-item {
+      display: none;
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3px;
+    }
+
+    &-btn {
+      display: none;
+    }
+
+    &-menu {
+      border: none;
+    }
+  }
+
+  &__context {
+    grid-column: 1 / -1;
+    display: flex;
+    grid-row: 2 / 2;
+    flex-direction: column;
+
+    &-container {
+      order: 2;
+    }
+    &-title {
+      margin: 40px 0 20px;
+
+      @include fonts.h1-mobile;
+    }
+
+    &-subtitle {
+      margin-bottom: 110px;
+
+      @include fonts.main;
+    }
+
+    &-image {
+      position: relative;
+      order: 0;
+      left: 50%;
+      right: 50%;
+      width: 100vw;
+      min-width: 320px;
+      height: 100vw;
+      min-height: 245px;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      background-image: url('/src/images/header/header-mobile.png');
+
+      @include media.grid-768 {
+        background-image: url('/src/images/header/header-tablet.png');
+      }
+
+      @include media.grid-1440 {
+        background-image: url('/src/images/header/header-desktop.png');
+      }
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  @include media.grid-768 {
+    &__nav {
+      &-item {
+        display: block;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: vars.$black-300;
+
+        @include fonts.main;
+      }
+
+      &-btn {
+        @include button.button;
+
+        width: 100px;
+        color: vars.$white;
+      }
+
+      &-menu {
+        display: none;
+      }
+    }
+
+    &__context {
+      // display: grid;
+
+      // grid-template-columns: repeat(8, 70px);
+      // grid-row: auto;
+      // gap: 20px;
+
+      flex-direction: row;
+
+      &-container {
+        order: 0;
+      }
+
+      &-title {
+        // margin: 40px 0 20px;
+
+        @include fonts.h1-tablet;
+      }
+
+      &-subtitle {
+        // margin-bottom: 110px;
+
+        // @include fonts.main;
+      }
+
+      &-image {
+        // grid-column: 5 / -1;
+        // grid-row: 1 / 2;
+
+        left: auto;
+        right: auto;
+        order: 1;
+
+        // min-width: 430px;
+        // min-height: 317px;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+
+  // @include media.grid-1440 {
+  // }
+}

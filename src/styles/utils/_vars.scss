@@ -1,20 +1,27 @@
+// Green
 $green-900: #0db2b3;
 $green-600: #cfeff0;
 $green-300: #eefafa;
 
-$black-1000: #000000;
+// Black
+$black-1000: #000;
 $black-900: #131313;
-$black-600: #333333;
+$black-600: #333;
 $black-300: #4f4f4f;
 
+// Gray
 $gray-900: #7c7c7c;
 $gray-600: #bdbdbd;
 $gray-300: #d0d0d0;
 
-$white-600: #f7f7f7;
+// White
+$white-200: #f7f7f7;
+$white: #fff;
 
+// Validation
 $valid: #0c797a;
 $invalid: #eb5757;
 $invalid-text: #eb57574d;
 
+// Fonts
 $font-family: 'Inter', sans-serif;
