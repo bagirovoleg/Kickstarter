@@ -1,6 +1,3 @@
-$grid-tablet-side-gap: 50px;
-$grid-desktop-side-gap-1024: 50px;
-
 @mixin grid-768() {
   @media (min-width: 768px) {
     @content;
