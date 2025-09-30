@@ -52,44 +52,51 @@
 
   &__context {
     grid-column: 1 / -1;
-    display: flex;
     grid-row: 2 / 2;
+
+    display: flex;
     flex-direction: column;
+
+    margin: 0 0 110px;
 
     &-container {
       order: 2;
     }
+
     &-title {
-      margin: 40px 0 20px;
+      margin: 0 0 20px;
 
       @include fonts.h1-mobile;
     }
 
     &-subtitle {
-      margin-bottom: 110px;
-
       @include fonts.main;
     }
 
     &-image {
-      order: 0;
-      width: 100vw;
-      height: 100vw; // Ustawiamy wysokość, aby obraz był widoczny
-      min-height: 245px; // Minimalna wysokość dla małych ekranów
-      position: relative;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
+      order: 0; // W kontenerze flex, ten element będzie wyświetlany jako pierwszy (przed tekstem).
+      width: 100vw; // Ustawia szerokość elementu na 100% szerokości okna przeglądarki (viewport width).
+      height: 100vw; // Ustawia wysokość na 100% szerokości okna, tworząc kwadratowy obraz.
+      min-height: 245px; // Zapewnia minimalną wysokość, aby obraz nie był zbyt mały na wąskich ekranach.
+      position: relative; // Niezbędne do użycia właściwości `left` i `right`.
+      left: 50%; // Przesuwa lewą krawędź elementu do środka jego kontenera nadrzędnego.
+      right: 50%; // Działa podobnie jak `left`, zapewniając, że element jest wyśrodkowany.
+      margin-left: -50vw; // Przesuwa element w lewo o połowę szerokości ekranu.
+      margin-right: -50vw; // Przesuwa element w prawo o połowę szerokości ekranu.
 
-      background-image: url('/src/images/header/header-mobile.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      // Powyższa kombinacja `position`, `left`, `right` i ujemnych marginesów
+      // pozwala obrazowi "wyjść" z ograniczeń kontenera i zająć całą szerokość ekranu.
+
+      background-image: url('/src/images/header/header-mobile.png'); // Ścieżka do obrazu dla urządzeń mobilnych.
+      background-size: contain; // Skaluje obraz, aby pokrył cały element, zachowując proporcje.
+      background-position: center; // Wyśrodkowuje obraz wewnątrz elementu.
+      background-repeat: no-repeat; // Zapobiega powtarzaniu się obrazu tła.
     }
   }
 
   @include media.grid-768 {
+    grid-template-rows: 108px auto;
+
     &__nav {
       &-item {
         display: block;
@@ -106,49 +113,38 @@
         width: 100px;
         color: vars.$white;
       }
-
-      &-menu {
-        display: none;
-      }
     }
 
     &__context {
-      // display: grid;
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      align-items: center;
+      gap: 20px;
 
-      // grid-template-columns: repeat(8, 70px);
-      // grid-row: auto;
-      // gap: 20px;
-
-      flex-direction: row;
+      margin: 100px 0 140px;
 
       &-container {
+        grid-column: 1 / span 3;
         order: 0;
       }
 
       &-title {
-        // margin: 40px 0 20px;
+        margin: 0 0 30px;
 
         @include fonts.h1-tablet;
       }
 
-      &-subtitle {
-        // margin-bottom: 110px;
-
-        // @include fonts.main;
-      }
-
       &-image {
-        // grid-column: 5 / -1;
-        // grid-row: 1 / 2;
-
-        background-image: url('/src/images/header/header-tablet.png');
-        left: auto;
-        right: auto;
+        grid-column: 4 / -1;
         order: 1;
 
-        // min-width: 430px;
-        height: auto; // Resetujemy wysokość, aby dopasowała się do kontenera
-        width: 100%;
+        background-image: url('/src/images/header/header-tablet.png');
+
+        position: static;
+        background-size: contain; // Obrazek dopasowuje się do kontenera bez przycinania, zachowując proporcje.
+        width: 100%; // Obrazek zajmuje 100% szerokości swojego kontenera (4 kolumny siatki)
+        height: auto; // Wysokość dopasowuje się automatycznie, zachowując proporcje obrazka
+        min-height: 318px; // Minimalna wysokość, aby zachować wygląd
         margin-left: 0;
         margin-right: 0;
       }
@@ -156,8 +152,34 @@
   }
 
   @include media.grid-1440 {
-    &__context-image {
-      background-image: url('/src/images/header/header-desktop.png');
+    &__nav {
+      &-menu {
+        display: none;
+      }
+    }
+    &__context {
+      display: grid;
+      align-items: center;
+      gap: 30px;
+      grid-template-columns: repeat(12, 1fr);
+
+      margin: 170px 0;
+
+      &-container {
+        grid-column: 1 / span 4;
+      }
+
+      &-title {
+        margin: 0 0 30px;
+
+        @include fonts.h1-desktop;
+      }
+      &-image {
+        grid-column: 5 / -1;
+
+        min-height: 464px;
+        background-image: url('/src/images/header/header-desktop.png');
+      }
     }
   }
 }
