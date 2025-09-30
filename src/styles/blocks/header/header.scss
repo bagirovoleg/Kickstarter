@@ -6,8 +6,6 @@
 .header {
   @include media.grid-320;
 
-  overflow: hidden;
-
   grid-template-rows: 76px auto;
 
   background-color: vars.$white-200;

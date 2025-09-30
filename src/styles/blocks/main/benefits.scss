@@ -1,0 +1,129 @@
+@use '../../utils/media';
+@use '../../utils/fonts';
+@use '../../utils/vars';
+@use '../../utils/button';
+
+.benefits {
+  @include media.grid-320;
+
+  // grid-template-rows: 76px auto;
+
+  &__nav {
+    display: none;
+  }
+
+  &__container {
+    grid-column: 1 / -1;
+
+    &-item {
+      text-align: center;
+
+      &:not(:first-child) {
+        display: none;
+      }
+
+      .item {
+        &__title {
+          @include fonts.h4;
+
+          margin: 40px 0 20px;
+        }
+
+        &__description {
+          @include fonts.secondary;
+        }
+      }
+    }
+  }
+
+  @include media.grid-768 {
+    &__container {
+      grid-column: 1 / -1;
+
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      align-items: center;
+      gap: 20px;
+
+      &-item {
+        grid-column: span 4;
+        text-align: center;
+
+        &:not(:first-child) {
+          display: block;
+        }
+
+        &:nth-child(3),
+        &:nth-child(4) {
+          margin-top: 65px;
+        }
+
+        .item {
+          &__title {
+            @include fonts.h4;
+
+            margin: 40px 0 20px;
+          }
+
+          &__description {
+            @include fonts.secondary;
+          }
+        }
+      }
+    }
+  }
+
+  @include media.grid-1440 {
+    grid-template-rows: 76px auto;
+
+    &__nav {
+      grid-column: 4 / span 6;
+      grid-row: 1 / span 1;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &__tab {
+      border: none;
+      background: transparent;
+
+      @include fonts.h4;
+
+      text-transform: uppercase;
+
+      a {
+        text-decoration: none;
+
+        color: vars.$black-600;
+
+        // @include mixins.hover-underline;
+
+        &:visited {
+          // color: vars.$black-600;
+        }
+      }
+    }
+
+    &__container {
+      grid-column: 1 / -1;
+
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px;
+
+      &-item {
+        grid-column: span 3;
+        text-align: center;
+
+        margin-top: 0 !important;
+
+        .item {
+          &__title {
+            margin: 30px 0 52px;
+          }
+        }
+      }
+    }
+  }
+}

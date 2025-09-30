@@ -1,0 +1,5 @@
+@use '../../utils/vars';
+
+main {
+  background-color: vars.$white-200;
+}
