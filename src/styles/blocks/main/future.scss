@@ -1,0 +1,57 @@
+@use '../../utils/media';
+@use '../../utils/fonts';
+@use '../../utils/vars';
+@use '../../utils/button';
+
+.future {
+  @include media.grid-320;
+
+  &__container {
+    grid-column: 1 / -1;
+
+    display: grid;
+
+    grid-template-areas: 'title' // Obszar dla tytułu
+      'image-area' // Obszar, w którym wyświetlimy obraz
+      'text'; // Obszar dla tekstu
+
+    // Używamy pseudo-elementu ::before, aby stworzyć warstwę dla obrazu tła.
+    // Działa to jak wirtualny element w siatce.
+    &::before {
+      content: '';
+      grid-area: image-area; // Przypisujemy pseudo-element do obszaru 'image-area'.
+
+      background-image: url('/src/images/main/future/future-mobile.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      min-height: 210px;
+
+      // --- Technika "Full Bleed" (rozciągnięcie na całą szerokość ekranu) ---
+      position: static;
+      width: 100vw;
+      height: auto;
+    }
+
+    &-title {
+      grid-area: title;
+
+      @include fonts.h2-mobile;
+
+      margin-bottom: 20px;
+    }
+
+    &-text {
+      grid-area: text;
+
+      @include fonts.secondary;
+    }
+
+    &-link {
+      @include fonts.button;
+
+      display: none;
+    }
+  }
+}

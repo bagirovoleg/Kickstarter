@@ -13,7 +13,7 @@
 
     min-height: 195px;
 
-    background-image: url('/src/images/main/meet/meet-luna.png');
+    background-image: url('/src/images/main/meet/meet-luna-mobile.png');
 
     // Skaluje obrazek tak, aby był w całości widoczny w kontenerze, zachowując proporcje.
     // Obrazek nie zostanie przycięty.
@@ -38,6 +38,8 @@
       height: auto;
       min-height: 430px;
 
+      background-image: url('/src/images/main/meet/meet-luna-tablet.png');
+
       // Resetuje style techniki "Full Bleed", aby element trzymał się siatki.
       left: auto;
       right: auto;
@@ -51,6 +53,8 @@
 
     &__container {
       min-height: 520px;
+
+      background-image: url('/src/images/main/meet/meet-luna-desktop.png');
     }
   }
 }
