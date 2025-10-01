@@ -1,0 +1,171 @@
+@use '../../utils/media';
+@use '../../utils/fonts';
+@use '../../utils/vars';
+@use '../../utils/button';
+
+.dropmenu {
+  @include media.grid-320;
+
+  grid-column: 1 / -1;
+
+  z-index: 1000;
+  background-color: vars.$white-200;
+
+  display: inline-block;
+  box-sizing: border-box;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+
+  transform: translateX(-100%);
+  transition: transform 0.33s ease-in-out;
+
+  overflow: hidden;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+
+  &.active {
+    transform: translateX(0);
+  }
+
+  &__container {
+    grid-column: 1 / -1;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 74px;
+
+    margin-bottom: 25px;
+  }
+
+  &__nav {
+    &-close {
+      width: 24px;
+      height: 24px;
+
+      display: inline-block;
+      border: none;
+      background-color: vars.$white-200;
+      cursor: pointer;
+    }
+  }
+
+  &__link {
+    grid-column: 1 / -1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    &-item {
+      border: none;
+      background: transparent;
+
+      padding: 0;
+
+      @include fonts.third;
+
+      text-transform: uppercase;
+
+      &:not(:first-child) {
+        margin-top: 25px;
+      }
+
+      a {
+        text-decoration: none;
+
+        color: vars.$black-600;
+
+        // @include mixins.hover-underline;
+
+        &:visited {
+          color: vars.$black-600;
+        }
+      }
+    }
+  }
+
+  &__spec {
+    grid-column: 1 / -1;
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+
+    margin-top: 50px;
+
+    &-a {
+      display: block;
+      text-decoration: none;
+
+      color: vars.$black-300;
+
+      @include fonts.third;
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3px;
+    }
+
+    &-item {
+      color: vars.$black-200;
+
+      &--1,
+      &--3 {
+        cursor: pointer;
+      }
+
+      &--2 {
+        color: vars.$black-600;
+      }
+
+      &.active {
+        color: vars.$black-600;
+      }
+
+      &.passive {
+        color: vars.$black-200;
+      }
+    }
+  }
+
+  &-btn {
+    grid-column: 1 / -1;
+
+    @include button.button;
+
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    width: auto;
+
+    color: vars.$white;
+  }
+
+  @include media.grid-768 {
+    &__container {
+      margin-bottom: 30px;
+    }
+
+    &__link {
+      &:not(:first-child) {
+        margin-top: 40px;
+      }
+    }
+
+    &__spec,
+    &-btn {
+      display: none;
+    }
+  }
+}

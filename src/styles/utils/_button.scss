@@ -33,9 +33,13 @@
 
   &:hover {
     @include button-hover;
+
+    cursor: pointer;
   }
 
   &:focus {
     @include button-passed;
+
+    cursor: pointer;
   }
 }

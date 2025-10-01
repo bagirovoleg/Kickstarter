@@ -22,15 +22,57 @@
         <nav class="header__nav" aria-label="Main navigation">
           <a class="header__nav-item" href="#spec">spec</a>
           <ul>
-            <li class="header__nav-item">EN</li>
-            <li class="header__nav-item">/</li>
-            <li class="header__nav-item">UA</li>
+            <li class="header__nav-item header__nav-item--1">EN</li>
+            <li class="header__nav-item header__nav-item--2">/</li>
+            <li class="header__nav-item header__nav-item--3">UA</li>
           </ul>
           <button class="header__nav-btn btn">buy</button>
           <button class="header__nav-menu" type="button" aria-label="Open menu">
-            <img src="./images/icons/Icon-Burger-menu.svg" alt="Open menu" />
+            <img
+              src="./images/icons/Icon-Burger-menu.svg"
+              id="menuOpen"
+              alt="Open menu"
+            />
           </button>
         </nav>
+      </nav>
+      <!-- Drop menu -->
+      <nav class="dropmenu" id="dropmenu">
+        <nav class="dropmenu__container">
+          <a class="dropmenu__nav-logo" href="/" aria-label="Homepage">
+            <img src="./images/icons/logo.svg" alt="Crazybaby" />
+          </a>
+          <button
+            class="dropmenu__nav-close"
+            id="menuClose"
+            aria-label="Close menu"
+          >
+            <img src="./images/icons/close.png" alt="Close menu" />
+          </button>
+        </nav>
+        <div class="dropmenu__link">
+          <button class="dropmenu__link-item" data-tab="1">
+            <a href="#our story">our story</a>
+          </button>
+          <button class="dropmenu__link-item" data-tab="1">
+            <a href="#our story">about us</a>
+          </button>
+          <button class="dropmenu__link-item" data-tab="1">
+            <a href="#our story">features</a>
+          </button>
+          <button class="dropmenu__link-item" data-tab="1">
+            <a href="#our story">get in touch</a>
+          </button>
+        </div>
+        <nav class="dropmenu__spec" aria-label="Main navigation">
+          <a class="dropmenu__spec-a" href="#spec">spec</a>
+          <ul>
+            <li class="dropmenu__spec-item dropmenu__spec-item--1">EN</li>
+            <li class="dropmenu__spec-item dropmenu__spec-item--2">/</li>
+            <li class="dropmenu__spec-item dropmenu__spec-item--3">UA</li>
+          </ul>
+        </nav>
+        <button class="dropmenu-btn btn">buy</button>
       </nav>
       <!-- Context container under the menu (page title / subtitle) -->
       <div class="header__context">
@@ -122,5 +164,6 @@
       </section>
     </main>
     <script src="scripts/main.js"></script>
+    <script src="scripts/dropmenu.js"></script>
   </body>
 </html>
