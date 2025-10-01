@@ -10,6 +10,8 @@
     background-color 300ms,
     transform 300ms ease-in-out;
   transform: translateY(-4px) scale(1.01);
+
+  cursor: pointer;
 }
 
 @mixin button-passed() {
