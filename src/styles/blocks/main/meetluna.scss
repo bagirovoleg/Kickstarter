@@ -1,0 +1,56 @@
+@use '../../utils/media';
+@use '../../utils/fonts';
+@use '../../utils/vars';
+@use '../../utils/button';
+
+.meetluna {
+  @include media.grid-320;
+
+  margin: 110px 0;
+
+  &__container {
+    grid-column: 1 / -1;
+
+    min-height: 195px;
+
+    background-image: url('/src/images/main/meet/meet-luna.png');
+
+    // Skaluje obrazek tak, aby był w całości widoczny w kontenerze, zachowując proporcje.
+    // Obrazek nie zostanie przycięty.
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    // --- Technika "Full Bleed" (rozciągnięcie na całą szerokość ekranu) ---
+    // Ustawia szerokość elementu na 100% szerokości okna przeglądarki.
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  @include media.grid-768 {
+    &__container {
+      position: static;
+      width: 100%;
+      height: auto;
+      min-height: 430px;
+
+      // Resetuje style techniki "Full Bleed", aby element trzymał się siatki.
+      left: auto;
+      right: auto;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  @include media.grid-1440 {
+    grid-column: 3 / span 8;
+
+    &__container {
+      min-height: 520px;
+    }
+  }
+}
