@@ -1,7 +1,7 @@
 @use '../utils/vars';
 @use '../utils/fonts';
 
-@mixin button-hover() {
+@mixin hover() {
   // background-color: vars.$white-200;
   // border: 1px solid vars.$gray-900;
   // color: vars.$gray-900;
@@ -32,7 +32,7 @@
   color: vars.$white;
 
   &:hover {
-    @include button-hover;
+    @include hover;
 
     cursor: pointer;
   }

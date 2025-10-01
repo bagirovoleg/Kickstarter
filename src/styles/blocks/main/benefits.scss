@@ -97,7 +97,7 @@
       border: none;
       background: transparent;
 
-      @include fonts.h4;
+      @include fonts.third;
 
       text-transform: uppercase;
 
@@ -109,6 +109,12 @@
 
       &.passive {
         color: vars.$black-200;
+      }
+
+      &:hover {
+        @include button.hover;
+
+        @include fonts.h6;
       }
     }
 
