@@ -15,6 +15,10 @@
   &__container {
     grid-column: 1 / -1;
 
+    &:not(.active) {
+      display: none;
+    }
+
     &-item {
       text-align: center;
 
@@ -97,16 +101,14 @@
 
       text-transform: uppercase;
 
-      a {
-        text-decoration: none;
+      cursor: pointer;
 
+      &.active {
         color: vars.$black-600;
+      }
 
-        // @include mixins.hover-underline;
-
-        &:visited {
-          color: vars.$black-600;
-        }
+      &.passive {
+        color: vars.$black-200;
       }
     }
 
