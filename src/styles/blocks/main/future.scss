@@ -2,56 +2,70 @@
 @use '../../utils/fonts';
 @use '../../utils/vars';
 @use '../../utils/button';
+@use '../../utils/mixins';
 
 .future {
   @include media.grid-320;
 
+  margin-bottom: 110px;
+
   &__container {
     grid-column: 1 / -1;
 
-    display: grid;
-
-    grid-template-areas: 'title' // Obszar dla tytułu
-      'image-area' // Obszar, w którym wyświetlimy obraz
-      'text'; // Obszar dla tekstu
-
-    // Używamy pseudo-elementu ::before, aby stworzyć warstwę dla obrazu tła.
-    // Działa to jak wirtualny element w siatce.
-    &::before {
-      content: '';
-      grid-area: image-area; // Przypisujemy pseudo-element do obszaru 'image-area'.
-
-      background-image: url('/src/images/main/future/future-mobile.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-
-      min-height: 210px;
-
-      // --- Technika "Full Bleed" (rozciągnięcie na całą szerokość ekranu) ---
-      position: static;
-      width: 100vw;
-      height: auto;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     &-title {
-      grid-area: title;
+      order: 1;
 
       @include fonts.h2-mobile;
-
-      margin-bottom: 20px;
     }
 
     &-text {
-      grid-area: text;
+      order: 3;
 
       @include fonts.secondary;
+
+      align-self: flex-start;
     }
 
     &-link {
-      @include fonts.button;
+      order: 4;
 
-      display: none;
+      align-self: flex-start;
+
+      margin-top: 30px;
+
+      a {
+        @include fonts.button;
+
+        color: vars.$green-900;
+        text-decoration: none;
+      }
+
+      @include button.hover;
+
+      &:hover {
+        transform: translateY(-4px) scale(1.01);
+      }
+    }
+
+    &-image {
+      order: 2;
+      width: 100%;
+
+      margin: 30px 0 20px;
+
+      & img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
     }
   }
-}
+} // @include media.grid-768 {
+// }
+
+// @include media.grid-1440 {
+// }

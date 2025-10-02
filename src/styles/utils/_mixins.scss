@@ -21,8 +21,8 @@
     left: 0;
     right: 0;
     bottom: -10px;
-    height: 2px; // grubość linii
-    // background: vars.$green-800;
+    height: 2px;
+    color: vars.$green-900;
     opacity: 0;
     transition: opacity 300ms;
   }
