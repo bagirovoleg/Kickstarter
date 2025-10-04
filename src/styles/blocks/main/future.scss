@@ -4,7 +4,8 @@
 @use '../../utils/button';
 @use '../../utils/mixins';
 
-.future {
+.future,
+.luna {
   @include media.grid-320;
 
   margin-bottom: 110px;
@@ -64,8 +65,33 @@
       }
     }
   }
-} // @include media.grid-768 {
-// }
+  @include media.grid-768 {
+    &__container {
+      &-title {
+        // order: 1;
 
-// @include media.grid-1440 {
-// }
+        @include fonts.h2-tablet;
+      }
+
+      &-text {
+        // order: 3;
+
+        @include fonts.main;
+      }
+    }
+  }
+
+  @include media.grid-1440 {
+    &__container {
+      &-title {
+        // order: 1;
+
+        @include fonts.h2-desktop;
+      }
+
+      &-text {
+        // order: 3;
+      }
+    }
+  }
+}
