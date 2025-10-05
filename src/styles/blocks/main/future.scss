@@ -4,37 +4,36 @@
 @use '../../utils/button';
 @use '../../utils/mixins';
 
-.future,
-.luna {
+.luna,
+.future {
   @include media.grid-320;
 
   margin-bottom: 110px;
 
-  &__container {
-    grid-column: 1 / -1;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'title-content'
+    'image-content'
+    'text-content'
+    'link-content';
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  &__container {
+    display: contents;
 
     &-title {
-      order: 1;
-
+      grid-area: title-content;
       @include fonts.h2-mobile;
     }
 
     &-text {
-      order: 3;
-
+      grid-area: text-content;
       @include fonts.secondary;
 
       align-self: flex-start;
     }
 
     &-link {
-      order: 4;
-
-      align-self: flex-start;
+      grid-area: link-content;
 
       margin-top: 30px;
 
@@ -53,9 +52,9 @@
     }
 
     &-image {
-      order: 2;
-      width: 100%;
+      grid-area: image-content;
 
+      width: 100%;
       margin: 30px 0 20px;
 
       & img {
@@ -65,33 +64,69 @@
       }
     }
   }
-  @include media.grid-768 {
-    &__container {
-      &-title {
-        // order: 1;
 
+  @include media.grid-768 {
+    grid-template-columns: 1fr 1fr;
+
+    grid-template-areas:
+      'title-content image-content'
+      'text-content image-content'
+      'link-content image-content';
+
+    &__container {
+      display: contents;
+
+      &-title {
+        grid-area: title-content;
         @include fonts.h2-tablet;
+
+        margin-bottom: -40px;
       }
 
       &-text {
-        // order: 3;
-
+        grid-area: text-content;
         @include fonts.main;
       }
+
+      &-link {
+        grid-area: link-content;
+        align-self: flex-start;
+
+        margin: 0;
+        height: 0;
+      }
+    }
+
+    &__container-image {
+      grid-area: image-content;
+      grid-column: 2 / -1;
+
+      width: calc(100% + 30px);
+      margin: 0;
     }
   }
 
   @include media.grid-1440 {
     &__container {
       &-title {
-        // order: 1;
-
         @include fonts.h2-desktop;
       }
+    }
+  }
+}
 
-      &-text {
-        // order: 3;
-      }
+.future {
+  @include media.grid-768 {
+    grid-template-areas:
+      'image-content title-content'
+      'image-content text-content'
+      'image-content link-content';
+
+    &__container-image {
+      grid-area: image-content; /* Obraz zajmuje drugą kolumnę */
+      grid-column: 1 / span 1; /* Obrazek rozciągnie się od drugiej kolumny do końca */
+      margin: 0;
+      margin-left: -30px;
     }
   }
 }
