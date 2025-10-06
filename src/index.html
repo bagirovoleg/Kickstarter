@@ -356,7 +356,7 @@
       <!-- FUTURE -->
       <section class="future">
         <div class="future__container">
-          <p class="future__container-title">Designed for the future</p>
+          <h2 class="future__container-title">Designed for the future</h2>
           <p class="future__container-text">
             In 2014, a group of geeky industrial designers, engineering veterans
             and acoustic experts formed crazybaby. This is a bunch of passionate
@@ -385,7 +385,7 @@
       <!--LUNA -->
       <section class="luna">
         <div class="luna__container">
-          <p class="luna__container-title">Designed for the luna</p>
+          <h2 class="luna__container-title">Designed for the luna</h2>
           <p class="luna__container-text">
             In 2014, a group of geeky industrial designers, engineering veterans
             and acoustic experts formed crazybaby. This is a bunch of passionate
@@ -422,9 +422,88 @@
         <p class="reviews__text-name">Garrett Martin</p>
         <p class="reviews__text-position">Creative Director</p>
       </section>
+      <!-- FEATURES -->
+      <section class="features">
+        <h2 class="features__title">Features</h2>
+        <div class="features__content">
+          <div
+            class="features__container features__container--1 active"
+            data-tab-content="1"
+          >
+            <p class="features__container-title">Connectivity</p>
+            <ul class="features__list">
+              <li class="features__list-item">Hands Free Wireless Audio</li>
+              <li class="features__list-item">Bluetooth 4.0 LE</li>
+              <li class="features__list-item">Wi-Fi 2.4 GHz (802.11 b/g/n)</li>
+              <li class="features__list-item">Smart Multiroom System Set Up</li>
+              <li class="features__list-item">
+                Party Mode with 6.0 Units and above
+              </li>
+              <li class="features__list-item">MESHNET Multi Speaker Network</li>
+            </ul>
+          </div>
+          <div
+            class="features__container features__container--2"
+            data-tab-content="2"
+          >
+            <p class="features__container-title">Sound & Music</p>
+            <ul class="features__list">
+              <li class="features__list-item">Feel-in-chest Base Power</li>
+              <li class="features__list-item">
+                Lossless Digital Audio Transmission
+              </li>
+              <li class="features__list-item">Easy & Stable Stereo Pairing</li>
+              <li class="features__list-item">
+                Crisp and Clear High Frequency Sound
+              </li>
+              <li class="features__list-item">
+                Streams from Cloud Music and Local Library
+              </li>
+              <li class="features__list-item">
+                Auto Music from Last Song Stopped
+              </li>
+            </ul>
+          </div>
+          <div
+            class="features__container features__container--3"
+            data-tab-content="3"
+          >
+            <p class="features__container-title">App Features</p>
+            <ul class="features__list">
+              <li class="features__list-item">Customize Music Schedule</li>
+              <li class="features__list-item">Wake Up with Favorite Songs</li>
+              <li class="features__list-item">Home Detection Auto Wake Up</li>
+              <li class="features__list-item">Color Wheel</li>
+            </ul>
+          </div>
+        </div>
+        <div class="features__slider">
+          <div class="arrows">
+            <button class="prev" aria-label="Previous feature"></button>
+            <button class="next" aria-label="Next feature"></button>
+          </div>
+          <div class="numbers">
+            <div class="number active" data-tab-content="1">1</div>
+            <div class="number passive" data-tab-content="2">2</div>
+            <div class="number passive" data-tab-content="3">3</div>
+            <div class="number-visible">/ 3</div>
+          </div>
+        </div>
+        <picture class="features__image">
+          <source
+            srcset="./images/main/features/features-desktop.png"
+            media="(min-width: 200px)"
+          />
+          <img
+            src="./images/main/features/features-desktop.png"
+            alt="Luna speaker"
+          />
+        </picture>
+      </section>
     </main>
     <script src="scripts/main.js"></script>
     <script src="scripts/dropmenu.js"></script>
     <script src="scripts/benefits-tabs.js"></script>
+    <script src="scripts/features-tabs.js"></script>
   </body>
 </html>

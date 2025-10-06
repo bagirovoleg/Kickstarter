@@ -1,0 +1,240 @@
+@use '../../utils/media';
+@use '../../utils/fonts';
+@use '../../utils/vars';
+@use '../../utils/button';
+@use '../../utils/mixins';
+
+.features {
+  @include media.grid-320;
+
+  background-color: vars.$green-700;
+
+  &__title {
+    grid-column: 1 / -1;
+
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+
+    box-sizing: border-box;
+    padding-left: 30px;
+
+    background-color: vars.$white-200;
+
+    padding-bottom: 30px;
+
+    @include fonts.h2-mobile;
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+
+    position: relative;
+    min-height: 250px;
+  }
+
+  &__container {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 300ms ease-in-out,
+      visibility 300ms ease-in-out;
+
+    &-title {
+      margin: 30px 0 20px;
+
+      @include fonts.h3-mobile;
+
+      color: vars.$valid;
+    }
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__list {
+    list-style-type: disc;
+    list-style-position: inside;
+
+    &-item {
+      &:not(:first-child) {
+        margin-top: 10px;
+      }
+
+      @include fonts.secondary;
+    }
+  }
+
+  &__slider {
+    grid-column: 2 / span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 50px;
+
+    .arrows {
+      display: flex;
+      flex-direction: row;
+
+      button {
+        border: none;
+        background-color: transparent;
+      }
+    }
+
+    .prev,
+    .next {
+      width: 48px;
+      height: 13px;
+      cursor: pointer;
+    }
+
+    .prev {
+      background-image: url('../images/icons/arrow-left.svg');
+
+      &:hover {
+        background-image: url('../images/icons/arrow-left-hover.svg');
+        @include button.hover;
+      }
+    }
+    .next {
+      background-image: url('../images/icons/arrow-right.svg');
+      &:hover {
+        background-image: url('../images/icons/arrow-right-hover.svg');
+        @include button.hover;
+      }
+    }
+
+    .numbers {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .number {
+      @include fonts.main;
+
+      color: vars.$black-600;
+
+      margin-right: 5px;
+
+      &:not(.active) {
+        display: none;
+      }
+
+      &-visible {
+        @include fonts.secondary;
+
+        color: vars.$valid;
+
+        transform: translateY(5px);
+      }
+    }
+  }
+
+  &__image {
+    grid-column: 1 / -1;
+
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+
+    box-sizing: border-box;
+    padding-top: 20px;
+
+    & img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @include media.grid-768 {
+    &__content {
+      grid-column: 2 / span 4;
+    }
+
+    &__slider {
+      grid-column: 2 / span 2;
+
+      justify-self: start;
+    }
+
+    &__image {
+      grid-column: 4 / -1;
+
+      z-index: inherit;
+      background: transparent;
+
+      width: 100%;
+      left: 0;
+      right: 0;
+      margin: 0;
+    }
+  }
+
+  @include media.grid-1440 {
+    &__title {
+      @include fonts.h2-desktop;
+    }
+
+    &__content {
+      // Usuwamy style siatki z tego kontenera,
+      // ponieważ jego dzieci będą pozycjonowane w siatce rodzica (.features)
+
+      display: contents; // Sprawia, że kontenery wewnątrz zachowują się jak dzieci .features
+      min-height: initial; // Resetujemy minimalną wysokość
+    }
+
+    &__list {
+      &-item {
+        @include fonts.main;
+      }
+    }
+
+    &__slider {
+      display: none; // Ukrywamy slider na dużych ekranach
+    }
+
+    &__container {
+      position: static; // Resetujemy pozycjonowanies
+      opacity: 1;
+      visibility: visible;
+      width: 100%;
+
+      &-title {
+        @include fonts.h3-desktop;
+      }
+    }
+
+    &__container--1 {
+      grid-column: 2 / span 4;
+      grid-row: 2 / span 1;
+    }
+
+    &__container--2 {
+      grid-column: 7 / span 4;
+      grid-row: 2 / span 1;
+    }
+
+    &__container--3 {
+      grid-column: 2 / span 4;
+      grid-row: 3 / span 1;
+    }
+
+    &__image {
+      grid-column: 7 / span 5;
+      grid-row: 3 / span 1;
+      align-self: end; // Wyrównujemy obrazek do dołu jego komórki siatki
+    }
+  }
+}

@@ -85,6 +85,7 @@
       right: 50%; // Działa podobnie jak `left`, zapewniając, że element jest wyśrodkowany.
       margin-left: -50vw; // Przesuwa element w lewo o połowę szerokości ekranu.
       margin-right: -50vw; // Przesuwa element w prawo o połowę szerokości ekranu.
+      box-sizing: border-box;
 
       // Powyższa kombinacja `position`, `left`, `right` i ujemnych marginesów
       // pozwala obrazowi "wyjść" z ograniczeń kontenera i zająć całą szerokość ekranu.

@@ -17,18 +17,21 @@
 
     // Skaluje obrazek tak, aby był w całości widoczny w kontenerze, zachowując proporcje.
     // Obrazek nie zostanie przycięty.
+
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 
     // --- Technika "Full Bleed" (rozciągnięcie na całą szerokość ekranu) ---
     // Ustawia szerokość elementu na 100% szerokości okna przeglądarki.
+
     width: 100vw;
     position: relative;
     left: 50%;
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
+    box-sizing: border-box;
   }
 
   @include media.grid-768 {
