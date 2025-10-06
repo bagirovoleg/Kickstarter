@@ -23,6 +23,8 @@
     &-title {
       grid-area: title-content;
       @include fonts.h2-mobile;
+
+      margin-bottom: 20px;
     }
 
     &-text {
@@ -30,6 +32,8 @@
       @include fonts.secondary;
 
       align-self: flex-start;
+
+      margin-top: 20px;
     }
 
     &-link {
@@ -51,7 +55,7 @@
       }
     }
 
-    &-image {
+    &__image {
       grid-area: image-content;
 
       width: 100%;
@@ -68,65 +72,72 @@
   @include media.grid-768 {
     grid-template-columns: 1fr 1fr;
 
-    grid-template-areas:
-      'title-content image-content'
-      'text-content image-content'
-      'link-content image-content';
+    margin-bottom: 140px;
 
     &__container {
       display: contents;
 
+      display: flex;
+      flex-direction: column;
+
       &-title {
-        grid-area: title-content;
         @include fonts.h2-tablet;
 
-        margin-bottom: -40px;
+        margin: 0;
       }
 
       &-text {
-        grid-area: text-content;
         @include fonts.main;
+
+        margin: 20px 0 60px;
       }
 
       &-link {
-        grid-area: link-content;
         align-self: flex-start;
 
         margin: 0;
-        height: 0;
       }
     }
 
-    &__container-image {
-      grid-area: image-content;
-      grid-column: 2 / -1;
+    &__image {
+      grid-column: 2 / span 1;
 
       width: calc(100% + 30px);
       margin: 0;
+      margin-right: -30px;
     }
   }
 
   @include media.grid-1440 {
+    margin-bottom: 170px;
+
     &__container {
       &-title {
         @include fonts.h2-desktop;
       }
+    }
+
+    &__image {
+      margin: 0;
     }
   }
 }
 
 .future {
   @include media.grid-768 {
-    grid-template-areas:
-      'image-content title-content'
-      'image-content text-content'
-      'image-content link-content';
+    grid-template-areas: 'image-content title-content';
 
-    &__container-image {
-      grid-area: image-content; /* Obraz zajmuje drugą kolumnę */
-      grid-column: 1 / span 1; /* Obrazek rozciągnie się od drugiej kolumny do końca */
+    &__image {
+      grid-area: image-content;
+      grid-column: 1 / span 1;
       margin: 0;
       margin-left: -30px;
+    }
+  }
+
+  @include media.grid-1440 {
+    &__image {
+      margin: 0;
     }
   }
 }
