@@ -2,7 +2,21 @@
 @use '../utils/fonts';
 
 @mixin hover() {
-  // background-color: vars.$white-200;
+  // background-color: vars.$black-900;
+  // border: 1px solid vars.$gray-900;
+  // color: vars.$gray-900;
+
+  transition:
+    background-color 300ms,
+    transform 300ms ease-in-out;
+  transform: translateY(-4px) scale(1.01);
+
+  cursor: pointer;
+}
+
+@mixin primery-btn-hover() {
+  background-color: vars.$black-900;
+
   // border: 1px solid vars.$gray-900;
   // color: vars.$gray-900;
 
@@ -34,7 +48,7 @@
   color: vars.$white;
 
   &:hover {
-    @include hover;
+    @include primery-btn-hover;
 
     cursor: pointer;
   }
