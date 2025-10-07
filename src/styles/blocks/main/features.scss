@@ -7,7 +7,10 @@
 .features {
   @include media.grid-320;
 
+  position: relative; // Niezbędne do pozycjonowania pseudo-elementu ::before
   background-color: vars.$green-700;
+
+  margin-bottom: 90px;
 
   &__title {
     grid-column: 1 / -1;
@@ -20,6 +23,7 @@
     margin-right: -50vw;
 
     box-sizing: border-box;
+
     padding-left: 30px;
 
     background-color: vars.$white-200;
@@ -159,6 +163,13 @@
   }
 
   @include media.grid-768 {
+    background-clip: content-box; // Przycinamy tło do obszaru contentu
+    margin-bottom: 140px;
+
+    &__title {
+      padding-left: 34px;
+    }
+
     &__content {
       grid-column: 2 / span 4;
     }
@@ -183,16 +194,17 @@
   }
 
   @include media.grid-1440 {
+    margin-bottom: 170px;
+
     &__title {
+      padding-left: 123px;
+
       @include fonts.h2-desktop;
     }
 
     &__content {
-      // Usuwamy style siatki z tego kontenera,
-      // ponieważ jego dzieci będą pozycjonowane w siatce rodzica (.features)
-
-      display: contents; // Sprawia, że kontenery wewnątrz zachowują się jak dzieci .features
-      min-height: initial; // Resetujemy minimalną wysokość
+      display: contents;
+      min-height: initial;
     }
 
     &__list {
@@ -202,11 +214,11 @@
     }
 
     &__slider {
-      display: none; // Ukrywamy slider na dużych ekranach
+      display: none;
     }
 
     &__container {
-      position: static; // Resetujemy pozycjonowanies
+      position: static;
       opacity: 1;
       visibility: visible;
       width: 100%;
@@ -234,7 +246,7 @@
     &__image {
       grid-column: 7 / span 5;
       grid-row: 3 / span 1;
-      align-self: end; // Wyrównujemy obrazek do dołu jego komórki siatki
+      align-self: end;
     }
   }
 }
