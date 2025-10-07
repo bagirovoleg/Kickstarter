@@ -1,0 +1,69 @@
+@use '../../utils/media';
+@use '../../utils/fonts';
+@use '../../utils/vars';
+@use '../../utils/button';
+@use '../../utils/mixins';
+
+.contacts {
+  @include media.grid-320;
+
+  &__title {
+    grid-column: 1 / -1;
+    @include fonts.h2-mobile;
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+  }
+
+  .message {
+    grid-column: 1 / -1;
+  }
+
+  .form {
+    &__input {
+      background-color: vars.$white-200;
+
+      @include fonts.main;
+
+      width: 100%;
+      height: 31px;
+      margin-bottom: 20px;
+
+      outline: none;
+      border: 1px solid vars.$black-200;
+
+      &:focus {
+        // border-bottom: 1px solid vars.$gray-900;
+      }
+
+      &:not(:placeholder-shown):valid {
+        border-bottom: 1px solid vars.$valid;
+        color: vars.$valid;
+      }
+
+      &:not(:placeholder-shown):invalid {
+        border-bottom: 1px solid vars.$invalid;
+        color: vars.$invalid;
+      }
+
+      &--message {
+        display: block;
+
+        margin-top: 40px;
+      }
+
+      &--name {
+        margin-top: 30px;
+      }
+    }
+
+    &__label {
+      // @include poppins.text-small;
+
+      &:not(:focus, :active) {
+        @include mixins.visually-hidden;
+      }
+    }
+  }
+}
