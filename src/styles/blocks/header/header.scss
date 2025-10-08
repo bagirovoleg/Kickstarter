@@ -12,8 +12,8 @@
 
   &__container {
     grid-column: 1 / -1;
-    display: flex;
     grid-row: 1 / 2;
+    display: flex;
     align-items: center;
     justify-content: space-between;
   }
@@ -26,6 +26,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     gap: 20px;
 
     &-item {
@@ -36,6 +37,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       gap: 3px;
     }
 
@@ -55,7 +57,6 @@
   &__context {
     grid-column: 1 / -1;
     grid-row: 2 / 2;
-
     display: flex;
     flex-direction: column;
 
@@ -77,22 +78,24 @@
 
     &-image {
       order: 0; // W kontenerze flex, ten element będzie wyświetlany jako pierwszy (przed tekstem).
-      width: 100vw; // Ustawia szerokość elementu na 100% szerokości okna przeglądarki (viewport width).
-      height: 100vw; // Ustawia wysokość na 100% szerokości okna, tworząc kwadratowy obraz.
-      min-height: 245px; // Zapewnia minimalną wysokość, aby obraz nie był zbyt mały na wąskich ekranach.
       position: relative; // Niezbędne do użycia właściwości `left` i `right`.
-      left: 50%; // Przesuwa lewą krawędź elementu do środka jego kontenera nadrzędnego.
       right: 50%; // Działa podobnie jak `left`, zapewniając, że element jest wyśrodkowany.
-      margin-left: -50vw; // Przesuwa element w lewo o połowę szerokości ekranu.
-      margin-right: -50vw; // Przesuwa element w prawo o połowę szerokości ekranu.
-      box-sizing: border-box;
+      left: 50%; // Przesuwa lewą krawędź elementu do środka jego kontenera nadrzędnego.
 
       // Powyższa kombinacja `position`, `left`, `right` i ujemnych marginesów
       // pozwala obrazowi "wyjść" z ograniczeń kontenera i zająć całą szerokość ekranu.
 
+      width: 100vw; // Ustawia szerokość elementu na 100% szerokości okna przeglądarki (viewport width).
+      height: 100vw; // Ustawia wysokość na 100% szerokości okna, tworząc kwadratowy obraz.
+      min-height: 245px; // Zapewnia minimalną wysokość, aby obraz nie był zbyt mały na wąskich ekranach.
+      margin-right: -50vw; // Przesuwa element w prawo o połowę szerokości ekranu.
+
+      margin-left: -50vw; // Przesuwa element w lewo o połowę szerokości ekranu.
+      box-sizing: border-box;
+
       background-image: url('/src/images/header/header-mobile.png'); // Ścieżka do obrazu dla urządzeń mobilnych.
-      background-size: contain; // Skaluje obraz, aby pokrył cały element, zachowując proporcje.
       background-position: center; // Wyśrodkowuje obraz wewnątrz elementu.
+      background-size: contain; // Skaluje obraz, aby pokrył cały element, zachowując proporcje.
       background-repeat: no-repeat; // Zapobiega powtarzaniu się obrazu tła.
     }
   }
@@ -103,6 +106,7 @@
     &__nav {
       &-item {
         display: block;
+
         text-decoration: none;
         text-transform: uppercase;
         color: vars.$black-300;
@@ -134,12 +138,12 @@
       }
 
       &-btn {
+        width: 100px;
+        color: vars.$white;
+
         @include button.button;
 
         // @include button.animation-hover;
-
-        width: 100px;
-        color: vars.$white;
       }
     }
 
@@ -147,8 +151,8 @@
       display: grid;
       grid-template-columns: repeat(8, 1fr);
       align-items: center;
-      gap: 20px;
 
+      gap: 20px;
       margin: 100px 0 140px;
 
       &-container {
@@ -166,15 +170,15 @@
         grid-column: 4 / -1;
         order: 1;
 
-        background-image: url('/src/images/header/header-tablet.png');
-
         position: static;
-        background-size: contain; // Obrazek dopasowuje się do kontenera bez przycinania, zachowując proporcje.
         width: 100%; // Obrazek zajmuje 100% szerokości swojego kontenera (4 kolumny siatki)
         height: auto; // Wysokość dopasowuje się automatycznie, zachowując proporcje obrazka
         min-height: 318px; // Minimalna wysokość, aby zachować wygląd
-        margin-left: 0;
         margin-right: 0;
+        margin-left: 0;
+
+        background-image: url('/src/images/header/header-tablet.png');
+        background-size: contain; // Obrazek dopasowuje się do kontenera bez przycinania, zachowując proporcje.
       }
     }
   }
@@ -189,9 +193,9 @@
     &__context {
       display: grid;
       align-items: center;
-      gap: 30px;
       grid-template-columns: repeat(12, 1fr);
 
+      gap: 30px;
       margin: 170px 0;
 
       &-container {
@@ -207,6 +211,7 @@
         grid-column: 5 / -1;
 
         min-height: 464px;
+
         background-image: url('/src/images/header/header-desktop.png');
       }
     }

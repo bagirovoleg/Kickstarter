@@ -8,8 +8,6 @@
 .future {
   @include media.grid-320;
 
-  margin-bottom: 110px;
-
   grid-template-columns: 1fr;
   grid-template-areas:
     'title-content'
@@ -17,23 +15,26 @@
     'text-content'
     'link-content';
 
+  margin-bottom: 110px;
+
   &__container {
     display: contents;
 
     &-title {
       grid-area: title-content;
-      @include fonts.h2-mobile;
 
       margin-bottom: 20px;
+
+      @include fonts.h2-mobile;
     }
 
     &-text {
       grid-area: text-content;
-      @include fonts.secondary;
-
       align-self: flex-start;
 
       margin-top: 20px;
+
+      @include fonts.secondary;
     }
 
     &-link {
@@ -42,10 +43,10 @@
       margin-top: 30px;
 
       a {
-        @include fonts.button;
-
         color: vars.$green-900;
         text-decoration: none;
+
+        @include fonts.button;
       }
 
       @include button.hover;
@@ -63,6 +64,7 @@
 
       & img {
         display: block;
+
         width: 100%;
         height: auto;
       }
@@ -75,8 +77,6 @@
     margin-bottom: 140px;
 
     &__container {
-      display: contents;
-
       display: flex;
       flex-direction: column;
 
@@ -130,6 +130,7 @@
     &__image {
       grid-area: image-content;
       grid-column: 1 / span 1;
+
       margin: 0;
       margin-left: -30px;
     }

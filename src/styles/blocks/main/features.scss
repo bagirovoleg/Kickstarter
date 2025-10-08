@@ -8,35 +8,33 @@
   @include media.grid-320;
 
   position: relative; // Niezbędne do pozycjonowania pseudo-elementu ::before
-  background-color: vars.$green-700;
 
   margin-bottom: 90px;
 
+  background-color: vars.$green-700;
+
   &__title {
-    grid-column: 1 / -1;
-
-    width: 100vw;
     position: relative;
-    left: 50%;
     right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    left: 50%;
 
+    grid-column: 1 / -1;
+    width: 100vw;
+    margin-right: -50vw;
+    margin-left: -50vw;
+    padding-left: 30px;
+    padding-bottom: 30px;
     box-sizing: border-box;
 
-    padding-left: 30px;
-
     background-color: vars.$white-200;
-
-    padding-bottom: 30px;
 
     @include fonts.h2-mobile;
   }
 
   &__content {
+    position: relative;
     grid-column: 1 / -1;
 
-    position: relative;
     min-height: 250px;
   }
 
@@ -50,11 +48,10 @@
       visibility 300ms ease-in-out;
 
     &-title {
+      color: vars.$valid;
       margin: 30px 0 20px;
 
       @include fonts.h3-mobile;
-
-      color: vars.$valid;
     }
     &.active {
       opacity: 1;
@@ -67,11 +64,11 @@
     list-style-position: inside;
 
     &-item {
+      @include fonts.secondary;
+
       &:not(:first-child) {
         margin-top: 10px;
       }
-
-      @include fonts.secondary;
     }
   }
 
@@ -122,38 +119,36 @@
     }
 
     .number {
-      @include fonts.main;
-
       color: vars.$black-600;
-
       margin-right: 5px;
+
+      @include fonts.main;
 
       &:not(.active) {
         display: none;
       }
 
       &-visible {
-        @include fonts.secondary;
-
         color: vars.$valid;
-
         transform: translateY(5px);
+
+        @include fonts.secondary;
       }
     }
   }
 
   &__image {
     grid-column: 1 / -1;
+    box-sizing: border-box;
+
+    padding-top: 20px;
+    position: relative;
+    right: 50%;
+    left: 50%;
 
     width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
     margin-right: -50vw;
-
-    box-sizing: border-box;
-    padding-top: 20px;
+    margin-left: -50vw;
 
     & img {
       display: block;
@@ -187,8 +182,8 @@
       background: transparent;
 
       width: 100%;
-      left: 0;
       right: 0;
+      left: 0;
       margin: 0;
     }
   }

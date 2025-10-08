@@ -26,9 +26,9 @@
 
       .item {
         &__title {
-          @include fonts.h4;
-
           margin: 40px 0 20px;
+
+          @include fonts.h4;
         }
 
         &__description {
@@ -41,17 +41,17 @@
   @include media.grid-768 {
     &__container {
       grid-column: 1 / -1;
-
       display: grid;
       grid-template-columns: repeat(8, 1fr);
       grid-template-rows: repeat(2, 1fr);
+
       align-items: center;
       gap: 20px;
 
       &-item {
         grid-column: span 4;
-        text-align: center;
         align-self: start;
+        text-align: center;
 
         &:not(:first-child) {
           display: block;
@@ -64,9 +64,9 @@
 
         .item {
           &__title {
-            @include fonts.h4;
-
             margin: 40px 0 20px;
+
+            @include fonts.h4;
           }
 
           &__description {
@@ -83,21 +83,19 @@
     &__nav {
       grid-column: 4 / span 6;
       grid-row: 1 / span 1;
-
-      margin-bottom: 30px;
-
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+
+      margin-bottom: 30px;
     }
 
     &__tab {
+      text-transform: uppercase;
       border: none;
       background: transparent;
 
       @include fonts.third;
-
-      text-transform: uppercase;
 
       &.active {
         color: vars.$black-600;
@@ -108,21 +106,22 @@
       }
 
       &:hover {
-        @include button.hover;
-
         @include fonts.h6;
+
+        @include button.hover;
       }
     }
 
     &__container {
       grid-column: 1 / -1;
-
       grid-template-columns: repeat(12, 1fr);
       grid-template-rows: 1fr;
+
       gap: 30px;
 
       &-item {
         grid-column: span 3;
+
         text-align: center;
 
         margin-top: 0 !important;

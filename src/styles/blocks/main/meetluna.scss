@@ -10,44 +10,41 @@
 
   &__container {
     grid-column: 1 / -1;
+    box-sizing: border-box;
 
+    // --- Technika "Full Bleed" (rozciągnięcie na całą szerokość ekranu) ---
+    position: relative;
+    right: 50%;
+    left: 50%;
+
+    // Ustawia szerokość elementu na 100% szerokości okna przeglądarki.
+    width: 100vw;
     min-height: 195px;
+    margin-right: -50vw;
+    margin-left: -50vw;
 
     background-image: url('/src/images/main/meet/meet-luna-mobile.png');
 
     // Skaluje obrazek tak, aby był w całości widoczny w kontenerze, zachowując proporcje.
     // Obrazek nie zostanie przycięty.
-
     background-size: contain;
-    background-repeat: no-repeat;
     background-position: center;
-
-    // --- Technika "Full Bleed" (rozciągnięcie na całą szerokość ekranu) ---
-    // Ustawia szerokość elementu na 100% szerokości okna przeglądarki.
-
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    box-sizing: border-box;
+    background-repeat: no-repeat;
   }
 
   @include media.grid-768 {
     &__container {
       position: static;
+      left: auto;
+      right: auto;
+
       width: 100%;
       height: auto;
       min-height: 430px;
+      margin-right: 0;
+      margin-left: 0;
 
       background-image: url('/src/images/main/meet/meet-luna-tablet.png');
-
-      // Resetuje style techniki "Full Bleed", aby element trzymał się siatki.
-      left: auto;
-      right: auto;
-      margin-left: 0;
-      margin-right: 0;
     }
   }
 
