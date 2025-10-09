@@ -138,12 +138,11 @@
       }
 
       &-btn {
-        width: 100px;
         color: vars.$white;
 
         @include button.button;
 
-        // @include button.animation-hover;
+        width: 100px;
       }
     }
 

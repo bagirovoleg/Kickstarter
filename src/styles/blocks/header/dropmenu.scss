@@ -13,9 +13,8 @@
   z-index: 1000;
 
   grid-column: 1 / -1;
-  display: inline-block;
+  display: block;
   box-sizing: border-box;
-  width: 100%;
   height: 100%;
   overflow: hidden;
   overflow-y: auto;
@@ -133,15 +132,15 @@
   }
 
   &-btn {
-    grid-column: 1 / -1;
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    left: 30px;
-    width: auto;
     color: vars.$white;
 
     @include button.button;
+
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    left: 30px;
+    width: auto;
   }
 
   @include media.grid-768 {

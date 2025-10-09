@@ -28,6 +28,15 @@
   cursor: pointer;
 }
 
+@mixin link-hover() {
+  border-bottom: 1px solid vars.$valid;
+
+  transition: transform 300ms ease-in-out;
+  transform: translateY(-4px) scale(1.1);
+
+  cursor: pointer;
+}
+
 @mixin button-passed() {
   // border: 1px solid vars.$gray-600;
 }

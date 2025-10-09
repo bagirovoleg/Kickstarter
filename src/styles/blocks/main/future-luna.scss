@@ -53,6 +53,8 @@
 
       &:hover {
         transform: translateY(-4px) scale(1.01);
+
+        @include button.link-hover;
       }
     }
 
