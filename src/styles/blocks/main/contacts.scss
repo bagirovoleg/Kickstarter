@@ -76,10 +76,12 @@
 
     &__button {
       display: block;
-      width: 105px;
+
       margin-top: 43px;
 
       @include button.button;
+
+      width: 105px;
 
       background: none;
       background-color: vars.$green-900;

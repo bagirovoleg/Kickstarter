@@ -1,5 +1,5 @@
-@use '../../utils/vars';
+@use '/src/styles/utils/vars';
 
-main {
+body {
   background-color: vars.$white-200;
 }
