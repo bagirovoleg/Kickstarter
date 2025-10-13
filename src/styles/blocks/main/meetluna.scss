@@ -8,53 +8,40 @@
 
   margin: 110px 0;
 
-  &__container {
+  &__image {
     grid-column: 1 / -1;
-    box-sizing: border-box;
 
-    // --- Technika "Full Bleed" (rozciągnięcie na całą szerokość ekranu) ---
-    position: relative;
-    right: 50%;
-    left: 50%;
+    width: calc(100% + 30px);
+    transform: translateX(-15px);
 
-    // Ustawia szerokość elementu na 100% szerokości okna przeglądarki.
-    width: 100vw;
-    min-height: 195px;
-    margin-right: -50vw;
-    margin-left: -50vw;
-
-    background-image: url('/src/images/main/meet/meet-luna-mobile.png');
-
-    // Skaluje obrazek tak, aby był w całości widoczny w kontenerze, zachowując proporcje.
-    // Obrazek nie zostanie przycięty.
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+    & img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
   }
 
   @include media.grid-768 {
-    &__container {
-      position: static;
-      left: auto;
-      right: auto;
+    padding: 140px 0;
 
-      width: 100%;
-      height: auto;
-      min-height: 430px;
-      margin-right: 0;
-      margin-left: 0;
-
-      background-image: url('/src/images/main/meet/meet-luna-tablet.png');
+    &__image {
+      width: calc(100% - 34px);
+      transform: translateX(17px);
     }
   }
 
   @include media.grid-1440 {
-    grid-column: 3 / span 8;
+    padding: 170px 0;
 
-    &__container {
-      min-height: 520px;
+    margin: 0 auto;
 
-      background-image: url('/src/images/main/meet/meet-luna-desktop.png');
+    &__image {
+      width: calc(100%);
+      transform: translateX(0);
+
+      max-width: 846px;
+
+      margin: 0 auto;
     }
   }
 }

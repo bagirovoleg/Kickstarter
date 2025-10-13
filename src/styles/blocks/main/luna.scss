@@ -4,8 +4,7 @@
 @use '../../utils/button';
 @use '../../utils/mixins';
 
-.luna,
-.future {
+.luna {
   @include media.grid-320;
 
   grid-template-columns: 1fr;
@@ -15,15 +14,17 @@
     'text-content'
     'link-content';
 
-  margin-bottom: 110px;
+  padding: 0 0 110px;
+  margin: 0 auto;
 
   &__container {
     display: contents;
+    grid-column: 1 / -1;
 
     &-title {
       grid-area: title-content;
 
-      margin-bottom: 20px;
+      margin: 0 30px 20px;
 
       @include fonts.h2-mobile;
     }
@@ -32,7 +33,7 @@
       grid-area: text-content;
       align-self: flex-start;
 
-      margin-top: 20px;
+      margin: 20px 30px 0;
 
       @include fonts.secondary;
     }
@@ -40,7 +41,7 @@
     &-link {
       grid-area: link-content;
 
-      margin-top: 30px;
+      margin: 30px 30px 0;
 
       a {
         color: vars.$green-900;
@@ -73,14 +74,28 @@
     }
   }
 
+  &__image {
+    width: calc(100vw - 60px);
+    transform: translateX(30px);
+
+    & img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
   @include media.grid-768 {
     grid-template-columns: 1fr 1fr;
 
     margin-bottom: 140px;
 
     &__container {
+      grid-column: 1 / 2;
       display: flex;
       flex-direction: column;
+
+      margin-left: 30px;
 
       &-title {
         @include fonts.h2-tablet;
@@ -102,11 +117,11 @@
     }
 
     &__image {
-      grid-column: 2 / span 1;
+      grid-column: 2 / 3;
 
-      width: calc(100% + 30px);
+      width: calc(100%);
       margin: 0;
-      margin-right: -30px;
+      transform: translateX(0);
     }
   }
 
@@ -119,26 +134,6 @@
       }
     }
 
-    &__image {
-      margin: 0;
-    }
-  }
-}
-
-.future {
-  @include media.grid-768 {
-    grid-template-areas: 'image-content title-content';
-
-    &__image {
-      grid-area: image-content;
-      grid-column: 1 / span 1;
-
-      margin: 0;
-      margin-left: -30px;
-    }
-  }
-
-  @include media.grid-1440 {
     &__image {
       margin: 0;
     }

@@ -43,6 +43,18 @@
 
     &-btn {
       display: none;
+
+      a {
+        text-decoration: none;
+
+        @include fonts.main;
+
+        color: vars.$white;
+
+        &:visited {
+          color: vars.$white;
+        }
+      }
     }
 
     &-menu {
@@ -67,6 +79,9 @@
     }
 
     &-title {
+      z-index: 2;
+      position: relative;
+
       margin: 0 0 20px;
 
       @include fonts.h1-mobile;
@@ -144,6 +159,10 @@
 
         width: 100px;
       }
+
+      &-menu {
+        display: none;
+      }
     }
 
     &__context {
@@ -169,6 +188,8 @@
         grid-column: 4 / -1;
         order: 1;
 
+        z-index: 0;
+
         position: static;
         width: 100%; // Obrazek zajmuje 100% szerokości swojego kontenera (4 kolumny siatki)
         height: auto; // Wysokość dopasowuje się automatycznie, zachowując proporcje obrazka
@@ -183,12 +204,6 @@
   }
 
   @include media.grid-1440 {
-    &__nav {
-      &-menu {
-        display: none;
-      }
-    }
-
     &__context {
       display: grid;
       align-items: center;
