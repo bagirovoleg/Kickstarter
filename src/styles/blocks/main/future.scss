@@ -88,6 +88,8 @@
   @include media.grid-768 {
     grid-template-columns: 1fr 1fr;
 
+    padding: 140px 0;
+
     &__container {
       grid-column: 2 / 3;
       grid-row: 1 / 2;
@@ -125,7 +127,7 @@
   }
 
   @include media.grid-1440 {
-    margin-bottom: 170px;
+    padding: 170px 0;
 
     &__container {
       &-title {

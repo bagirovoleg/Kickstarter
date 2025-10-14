@@ -195,7 +195,16 @@
     margin-bottom: 170px;
 
     &__title {
-      padding-left: 123px;
+      padding: 0 0 30px;
+      position: static;
+      width: auto;
+      margin-right: 0;
+      margin-left: 0;
+
+      // Resetowanie właściwości z mobile, które nie są już potrzebne
+      right: auto;
+      left: auto;
+      grid-column: 1 / -1;
 
       @include fonts.h2-desktop;
     }
