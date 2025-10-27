@@ -60,6 +60,8 @@
     &-menu {
       border: none;
 
+      background-color: transparent;
+
       &:hover {
         @include button.hover;
       }
@@ -161,7 +163,7 @@
       }
 
       &-menu {
-        display: none;
+        // display: none;
       }
     }
 
@@ -204,6 +206,12 @@
   }
 
   @include media.grid-1440 {
+    &__nav {
+      &-menu {
+        display: none;
+      }
+    }
+
     &__context {
       display: grid;
       align-items: center;
